@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOVEREIGNITITY™ | Self-Sovereign Identity + Economic Sovereignty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .crown-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .crown-icon-large {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .step-indicator {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto;
+        }
+        
+        .step-active {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+        }
+        
+        .step-inactive {
+            background: transparent;
+            border: 2px solid #475569;
+            color: #94a3b8;
+        }
+        
+        .step-line {
+            height: 2px;
+            background: #475569;
+            flex: 1;
+            margin: 0 1rem;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        .nav-link {
+            color: #e2e8f0;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+        }
+        
+        .nav-link.active {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+        }
+        
+        .problem-card {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            color: white;
+        }
+        
+        .solution-section {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white">
+    <!-- Navigation -->
+    <nav class="bg-slate-900/50 backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="solvy_logo_blue.png" alt="SOLVY - Solutions Valued You" class="h-12 w-auto">
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="card.html" class="nav-link">SOVEREIGNITITY™ CARD</a>
+                    <a href="#" class="nav-link">EBL Services</a>
+                    <a href="sovereignitity.html" class="nav-link active">SOVEREIGNITITY™</a>
+                    <a href="#" class="nav-link">Global Remittance</a>
+                    <a href="#" class="nav-link">DECIDEY NGO</a>
+                </div>
+                
+                <!-- Right Side -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="flex items-center space-x-1">
+                        <button class="nav-link">Financial <i class="fas fa-chevron-down ml-1"></i></button>
+                        <button class="nav-link">Products <i class="fas fa-chevron-down ml-1"></i></button>
+                        <button class="nav-link">Platform <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                    <a href="#" class="nav-link">Sign In</a>
+                    <a href="#" class="cta-primary">Get Started</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-slate-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <div class="flex items-center justify-center mb-8">
+                <div class="crown-icon mr-4">
+                    <img src="solvy-logo.png" alt="SOLVY Crown" class="w-8 h-8">
+                </div>
+                <h1 class="text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    SOVEREIGNITITY™
+                </h1>
+                <div class="crown-icon ml-4">
+                    <img src="solvy-logo.png" alt="SOLVY Crown" class="w-8 h-8">
+                </div>
+            </div>
+            
+            <p class="text-2xl text-slate-300 mb-12">Self-Sovereign Identity + Economic Sovereignty</p>
+            
+            <p class="text-lg text-slate-400 max-w-4xl mx-auto leading-relaxed">
+                Revolutionary concept combining self-sovereign identity with economic empowerment. Own your data, 
+                earn from your participation, and connect to global African diaspora development through 
+                cooperative financial networks.
+            </p>
+        </section>
+        
+        <!-- Progress Steps -->
+        <section class="mb-20">
+            <div class="flex items-center justify-center mb-8">
+                <div class="step-indicator step-active">1</div>
+                <div class="step-line"></div>
+                <div class="step-indicator step-inactive">2</div>
+                <div class="step-line"></div>
+                <div class="step-indicator step-inactive">3</div>
+                <div class="step-line"></div>
+                <div class="step-indicator step-inactive">4</div>
+            </div>
+            
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-4">Understanding SOVEREIGNITITY™</h2>
+                <p class="text-xl text-slate-300">Learn about self-sovereign identity and economic empowerment</p>
+            </div>
+        </section>
+        
+        <!-- What is SOVEREIGNITITY Section -->
+        <section class="mb-20">
+            <div class="bg-slate-800/30 rounded-2xl p-8 mb-12">
+                <h2 class="text-4xl font-bold text-center mb-12">What is SOVEREIGNITITY™?</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- The Problem -->
+                    <div class="problem-card">
+                        <h3 class="text-2xl font-bold mb-6">The Problem</h3>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle mr-3 mt-1 text-yellow-400"></i>
+                                Big Tech companies profit from your data while you get nothing
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle mr-3 mt-1 text-yellow-400"></i>
+                                Your digital identity is controlled by corporations
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle mr-3 mt-1 text-yellow-400"></i>
+                                African diaspora wealth doesn't flow back to continental development
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- SOVEREIGNITITY Logo -->
+                    <div class="text-center">
+                        <div class="crown-icon-large mb-6">
+                            <img src="solvy-logo.png" alt="SOLVY Crown" class="w-16 h-16">
+                        </div>
+                        <h3 class="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            SOVEREIGNITITY™
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- The Solution -->
+            <div class="solution-section">
+                <h3 class="text-2xl font-bold mb-6 text-center">The Solution</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="crown-icon mb-4">
+                            <img src="solvy-logo.png" alt="SOLVY Crown" class="w-6 h-6">
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Own Your Data</h4>
+                        <p class="text-slate-300">Take control of your digital identity and monetize your personal information</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="crown-icon mb-4">
+                            <img src="solvy-logo.png" alt="SOLVY Crown" class="w-6 h-6">
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Earn from Participation</h4>
+                        <p class="text-slate-300">Generate income through cooperative economic networks and data sovereignty</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="crown-icon mb-4">
+                            <img src="solvy-logo.png" alt="SOLVY Crown" class="w-6 h-6">
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Global Connection</h4>
+                        <p class="text-slate-300">Connect diaspora wealth to continental African development initiatives</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <section class="text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Claim Your Sovereignty?</h2>
+            <p class="text-xl text-slate-300 mb-8">Join the movement toward true economic empowerment</p>
+            <a href="card.html" class="cta-primary text-lg">Get Your SOLVY Card</a>
+        </section>
+    </main>
+
+    <!-- Made with Manus -->
+    <div class="fixed bottom-4 right-4 bg-black/50 text-white px-3 py-2 rounded-lg text-sm backdrop-blur-sm">
+        <i class="fas fa-code mr-1"></i> Made with Manus
+    </div>
+</body>
+</html>
+
