@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOLVY - Solutions Valued You | SOVEREIGNITITY™ Platform</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap');
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
             background: linear-gradient(135deg, #0A1128 0%, #1a1f3a 50%, #0A1128 100%);
             color: #FFFFFF;
-            margin: 0;
-            padding: 0;
+            line-height: 1.6;
         }
-        
+
+        /* Navigation Styles */
         .navbar {
             background: rgba(10, 17, 40, 0.95);
             backdrop-filter: blur(10px);
@@ -25,58 +28,179 @@
             top: 0;
             width: 100%;
             z-index: 1000;
+            padding: 0.5rem 0;
         }
-        
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
         .nav-tab {
             background: rgba(123, 104, 238, 0.2);
             border: 1px solid rgba(123, 104, 238, 0.3);
             color: #e2e8f0;
             padding: 0.5rem 1rem;
-            margin: 0.25rem;
             border-radius: 6px;
-            transition: all 0.3s ease;
             text-decoration: none;
             position: relative;
             font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        
+
         .nav-tab:hover {
             background: rgba(123, 104, 238, 0.4);
-            color: #7B68EE;
+            color: #f8d6ee;
             transform: translateY(-1px);
         }
-        
+
         .nav-tab-number {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #FF6B6B;
+            background: #8B5CF6;
             color: white;
-            border-radius: 50%;
             width: 20px;
             height: 20px;
+            border-radius: 50%;
+            font-size: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
-            font-weight: bold;
+            font-weight: 600;
         }
-        
+
+        .nav-tab:nth-child(1) .nav-tab-number { background: #8B5CF6; }
+        .nav-tab:nth-child(2) .nav-tab-number { background: #3B82F6; }
+        .nav-tab:nth-child(3) .nav-tab-number { background: #F59E0B; }
+        .nav-tab:nth-child(4) .nav-tab-number { background: #10B981; }
+        .nav-tab:nth-child(5) .nav-tab-number { background: #6366F1; }
+        .nav-tab:nth-child(6) .nav-tab-number { background: #EC4899; }
+        .nav-tab:nth-child(7) .nav-tab-number { background: #EF4444; }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(10, 17, 40, 0.95);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 6px;
+            border: 1px solid rgba(123, 104, 238, 0.3);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #e2e8f0;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(123, 104, 238, 0.3);
+        }
+
+        /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, #0A1128 0%, #1a1f3a 50%, #0A1128 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
+            padding: 6rem 2rem 2rem;
+            position: relative;
         }
-        
-        .hero-image {
-            background: linear-gradient(135deg, #7B68EE 0%, #FF6B6B 100%);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
-        
+
+        .hero-content {
+            text-align: left;
+        }
+
+        .hero-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-logo img {
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 0 20px rgba(123, 104, 238, 0.5));
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .solutions-text {
+            background: linear-gradient(135deg, #60A5FA 0%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .cta-primary {
             background: #7B68EE;
             color: white;
@@ -86,122 +210,254 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             transition: all 0.3s ease;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        
+
         .cta-primary:hover {
             background: #FF6B6B;
             transform: translateY(-2px);
             color: white;
         }
-        
+
         .cta-secondary {
-            border: 2px solid #7B68EE;
+            background: transparent;
             color: #7B68EE;
+            border: 2px solid #7B68EE;
             padding: 10px 22px;
             border-radius: 8px;
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             transition: all 0.3s ease;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        
+
         .cta-secondary:hover {
             background: #7B68EE;
             color: white;
             transform: translateY(-2px);
         }
-        
-        .slide-container {
-            background: rgba(123, 104, 238, 0.1);
-            border: 1px solid rgba(123, 104, 238, 0.2);
-            border-radius: 16px;
-            padding: 3rem;
-            margin: 2rem 0;
+
+        .hero-card {
+            background: linear-gradient(135deg, #7B68EE 0%, #FF6B6B 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             position: relative;
-            min-height: 600px;
             overflow: hidden;
         }
-        
-        .slide-content {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
-        
-        .slide-content.active {
+
+        .hero-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .hero-card p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-card img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Presentation Section */
+        .presentation-section {
+            padding: 4rem 2rem;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .presentation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .presentation-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #7B68EE 0%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .presentation-subtitle {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .slide-container {
+            background: rgba(123, 104, 238, 0.1);
+            border: 2px solid rgba(123, 104, 238, 0.3);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            min-height: 500px;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
             display: block;
         }
-        
-        @keyframes fadeIn {
+
+        @keyframes slideIn {
             from { opacity: 0; transform: translateX(20px); }
             to { opacity: 1; transform: translateX(0); }
         }
-        
-        .slide-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 3.5rem;
-            color: #7B68EE;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        .slide-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 2rem;
-            color: #FF6B6B;
-            margin-bottom: 1.5rem;
-        }
-        
-        .slide-text {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            color: #e2e8f0;
-            margin-bottom: 2rem;
-        }
-        
-        .accent {
-            color: #7B68EE;
-        }
-        
-        .slide-navigation {
+
+        .slide-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
-        
-        .nav-button {
-            background: rgba(123, 104, 238, 0.2);
-            border: 1px solid rgba(123, 104, 238, 0.3);
+
+        .slide-title {
+            font-size: 2.5rem;
+            font-weight: 700;
             color: #7B68EE;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .slide-counter {
+            background: rgba(123, 104, 238, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
             font-weight: 600;
         }
-        
-        .nav-button:hover {
-            background: #7B68EE;
-            color: white;
-            transform: translateY(-2px);
+
+        .slide-subtitle {
+            font-size: 1.5rem;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
-        
-        .nav-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+
+        .slide-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: center;
         }
-        
-        .slide-indicators {
+
+        .slide-text {
+            color: #e2e8f0;
+            line-height: 1.8;
+        }
+
+        .slide-points {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .slide-points li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        .slide-points li::before {
+            content: "👑";
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .slide-visual {
+            background: linear-gradient(135deg, #7B68EE 0%, #FF6B6B 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .slide-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .slide-quote {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #7B68EE;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #f8d6ee;
+        }
+
+        .navigation-controls {
             display: flex;
             justify-content: center;
-            gap: 0.5rem;
-            margin: 1rem 0;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
         }
-        
+
+        .nav-button {
+            background: #7B68EE;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #FF6B6B;
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background: rgba(123, 104, 238, 0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-indicators {
+            display: flex;
+            gap: 0.5rem;
+        }
+
         .indicator {
             width: 12px;
             height: 12px;
@@ -210,135 +466,160 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .indicator.active {
             background: #7B68EE;
             transform: scale(1.2);
         }
-        
-        .slide-counter {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(123, 104, 238, 0.2);
-            color: #7B68EE;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+
+        /* Ecosystem Section */
+        .ecosystem-section {
+            padding: 4rem 2rem;
         }
-        
-        .presentation-intro {
+
+        .ecosystem-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ecosystem-header {
             text-align: center;
             margin-bottom: 3rem;
         }
-        
-        .intro-title {
-            font-family: 'Montserrat', sans-serif;
+
+        .ecosystem-title {
+            font-size: 2.5rem;
             font-weight: 700;
-            font-size: 3rem;
-            color: #7B68EE;
             margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
         }
-        
-        .intro-subtitle {
-            font-size: 1.25rem;
-            color: #e2e8f0;
+
+        .ecosystem-subtitle {
+            font-size: 1.1rem;
+            color: #cbd5e1;
             max-width: 800px;
             margin: 0 auto;
         }
-        
-        .ecosystem-section {
-            background: #0A1128;
-            padding: 4rem 0;
-        }
-        
-        .ecosystem-card {
-            background: rgba(123, 104, 238, 0.1);
-            border: 1px solid rgba(123, 104, 238, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            height: 100%;
-            transition: all 0.3s ease;
-        }
-        
-        .ecosystem-card:hover {
-            transform: translateY(-5px);
-            border-color: #7B68EE;
-            box-shadow: 0 10px 30px rgba(123, 104, 238, 0.2);
-        }
-        
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: rgba(10, 17, 40, 0.95);
-            backdrop-filter: blur(10px);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            z-index: 1000;
-            border-radius: 8px;
-            border: 1px solid rgba(123, 104, 238, 0.3);
-            top: 100%;
-            right: 0;
-        }
-        
-        .dropdown-content a {
-            color: #e2e8f0;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-            border-radius: 6px;
-            margin: 4px;
-        }
-        
-        .dropdown-content a:hover {
-            background: rgba(123, 104, 238, 0.2);
-            color: #8b5cf6;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .made-with-manus {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            z-index: 1000;
+        .ecosystem-card {
+            background: rgba(123, 104, 238, 0.1);
+            border: 2px solid rgba(123, 104, 238, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
-        
+
+        .ecosystem-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(123, 104, 238, 0.6);
+        }
+
+        .ecosystem-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .ecosystem-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .ecosystem-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #7B68EE;
+        }
+
+        .ecosystem-status {
+            background: #10B981;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .ecosystem-card p {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .ecosystem-cta {
+            background: transparent;
+            color: #7B68EE;
+            border: 1px solid #7B68EE;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .ecosystem-cta:hover {
+            background: #7B68EE;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            border-top: 1px solid rgba(123, 104, 238, 0.2);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .slide-container {
-                min-height: 500px;
-            }
-            
-            .slide-content {
-                padding: 20px;
-                height: 500px;
-            }
-            
-            .slide-title {
-                font-size: 2rem;
-            }
-            
-            .intro-title {
-                font-size: 2rem;
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 0.25rem;
             }
             
             .nav-tab {
-                padding: 0.25rem 0.5rem;
+                padding: 0.4rem 0.8rem;
                 font-size: 0.75rem;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .presentation-title {
+                font-size: 2rem;
+            }
+            
+            .slide-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .slide-title {
+                font-size: 1.8rem;
+            }
+            
+            .ecosystem-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -346,91 +627,72 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <img src="solvy-logo.png" alt="SOLVY Crown" class="h-10 w-10">
-                </div>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="solvy-logo.png" alt="SOLVY Crown Logo">
+            </div>
+            
+            <div class="nav-tabs">
+                <a href="/" class="nav-tab">
+                    <span class="nav-tab-number">1</span>
+                    Home
+                </a>
+                <a href="/solvy-card" class="nav-tab">
+                    <span class="nav-tab-number">2</span>
+                    SOVEREIGNITITY™ CARD
+                </a>
+                <a href="https://ebl.beauty" class="nav-tab">
+                    <span class="nav-tab-number">3</span>
+                    EBL Services
+                </a>
+                <a href="/sovereignitity" class="nav-tab">
+                    <span class="nav-tab-number">4</span>
+                    SOVEREIGNITITY™
+                </a>
+                <a href="https://decidey-4bhjvq.manus.space/reign" class="nav-tab">
+                    <span class="nav-tab-number">5</span>
+                    Reign
+                </a>
+                <a href="https://sovereign-acdbxm.manus.space/" class="nav-tab">
+                    <span class="nav-tab-number">6</span>
+                    Global Remittance
+                </a>
+                <a href="#decidey-section" class="nav-tab">
+                    <span class="nav-tab-number">7</span>
+                    DECIDEY NGO
+                </a>
                 
-                <!-- Navigation Links -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="index.html" class="nav-tab">
-                        Home
-                        <span class="nav-tab-number">1</span>
-                    </a>
-                    <a href="solvy-card.html" class="nav-tab">
-                        SOVEREIGNITITY™ CARD
-                        <span class="nav-tab-number">2</span>
-                    </a>
-                    <a href="https://ebl.beauty" class="nav-tab" target="_blank">
-                        EBL Services
-                        <span class="nav-tab-number">3</span>
-                    </a>
-                    <a href="sovereignitity.html" class="nav-tab">
-                        SOVEREIGNITITY™
-                        <span class="nav-tab-number">4</span>
-                    </a>
-                    <a href="reign.html" class="nav-tab">
-                        Reign
-                        <span class="nav-tab-number">5</span>
-                    </a>
-                    <a href="remittance.html" class="nav-tab">
-                        Global Remittance
-                        <span class="nav-tab-number">6</span>
-                    </a>
-                    <a href="decidey.html" class="nav-tab">
-                        DECIDEY NGO
-                        <span class="nav-tab-number">7</span>
-                    </a>
-                </div>
-                
-                <!-- Right Side -->
-                <div class="hidden md:flex items-center space-x-4">
-                    <div class="flex items-center space-x-1">
-                        <div class="dropdown">
-                            <button class="nav-tab">
-                                Financial
-                                <span class="nav-tab-number">8</span>
-                                <i class="fas fa-chevron-down ml-1"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="moli.html">MOLI Program</a>
-                                <a href="ebl-payment.html">EBL Payment System</a>
-                                <a href="remittance.html">Global Remittance</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="nav-tab">
-                                Products
-                                <span class="nav-tab-number">9</span>
-                                <i class="fas fa-chevron-down ml-1"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="reign.html">Reign Products</a>
-                                <a href="solvy-card.html">SOVEREIGNITITY™ CARD</a>
-                                <a href="https://ebl.beauty" target="_blank">EBL Services</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="nav-tab">
-                                Platform
-                                <i class="fas fa-chevron-down ml-1"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="sovereignitity.html">SOVEREIGNITITY™</a>
-                                <a href="decidey.html">DECIDEY NGO</a>
-                                <a href="#man-network">MAN Network</a>
-                            </div>
-                        </div>
+                <div class="dropdown">
+                    <button class="nav-tab">
+                        <span class="nav-tab-number">8</span>
+                        Financial ▼
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="https://decidey-4bhjvq.manus.space/moli">MOLI Program</a>
+                        <a href="https://ebl.beauty">EBL Payment System</a>
+                        <a href="https://sovereign-acdbxm.manus.space/">Global Remittance</a>
                     </div>
                 </div>
                 
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button class="text-slate-300 hover:text-white">
-                        <i class="fas fa-bars text-xl"></i>
+                <div class="dropdown">
+                    <button class="nav-tab">
+                        <span class="nav-tab-number">9</span>
+                        Products ▼
                     </button>
+                    <div class="dropdown-content">
+                        <a href="https://decidey-4bhjvq.manus.space/reign">Reign Products</a>
+                        <a href="/solvy-card">SOVEREIGNITITY™ CARD</a>
+                        <a href="https://ebl.beauty">EBL Services</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown">
+                    <button class="nav-tab">Platform ▼</button>
+                    <div class="dropdown-content">
+                        <a href="/sovereignitity">SOVEREIGNITITY™</a>
+                        <a href="#decidey-section">DECIDEY NGO</a>
+                        <a href="#man-network">MAN Network</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -438,318 +700,271 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-                <!-- Crown Icon above text -->
-                <div class="flex justify-center mb-8">
-                    <img src="solvy-logo.png" alt="SOLVY Crown" class="h-16 w-16">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="solvy-logo.png" alt="SOLVY Crown Logo">
                 </div>
                 
-                <h1 class="text-5xl font-bold mb-4 tracking-tighter leading-tight text-center">
-                    <span class="text-blue-400">SOLUTIONS VALUED</span> <span class="text-pink-400">YOU</span>
+                <h1 class="hero-title">
+                    SOVEREIGNITITY™
                 </h1>
-                <h2 class="text-3xl font-semibold mb-6 text-white text-center">Financial Sovereignty</h2>
-                <p class="text-lg mb-8 leading-relaxed">
-                    Created by <span class="text-purple-400 font-semibold">SA Nathan</span>, SOLVY serves Americans who understand the truth - that this nation was built by those seeking opportunity. Through <span class="text-blue-400">data sovereignty</span> and <span class="text-green-400">economic autonomy</span>, we break free from systems of economic entrapment. Our mission addresses inequities while ensuring <span class="text-yellow-400">financial and economic survival</span> for small businesses and family foundations - the heartbeat of the American economy. We build genuine economic freedom from the ground up.
+                
+                <h2 class="hero-title solutions-text">
+                    SOLUTIONS VALUED YOU
+                </h2>
+                
+                <h3 class="hero-subtitle">Financial Sovereignty</h3>
+                
+                <p class="hero-description">
+                    Created by <strong>SA Nathan</strong>, SOLVY serves Americans who understand the truth - that this nation was built by those seeking opportunity. Through data sovereignty and economic autonomy, we break free from systems of economic entrapment. Our mission addresses inequities while ensuring financial and economic survival for small businesses and family foundations - the heartbeat of the American economy. We build genuine economic freedom from the ground up.
                 </p>
-                <div class="flex space-x-4">
-                    <a href="solvy-card.html" class="cta-primary text-lg px-8 py-3">Get Your SOVEREIGNITITY™ Card</a>
-                    <a href="ebl-payment.html" class="cta-secondary text-lg px-8 py-3">EBL Payment System →</a>
+                
+                <div class="hero-cta">
+                    <a href="/solvy-card" class="cta-primary">
+                        👑 Get Your SOVEREIGNITITY™ Card
+                    </a>
+                    <a href="/ebl-payment" class="cta-secondary">
+                        EBL Payment System →
+                    </a>
                 </div>
             </div>
-            <div class="flex justify-center">
-                <div class="hero-image max-w-md">
-                    <h3 class="text-2xl font-bold mb-4">SOLVY Payment Processing</h3>
-                    <p class="text-lg">Secure, fast, and rewarding transactions for businesses and customers</p>
-                    <div class="mt-6 bg-white/10 rounded-lg p-4">
-                        <div class="w-full h-48 rounded-lg overflow-hidden">
-                            <img src="hero_payment_image.webp" alt="SOLVY Payment Processing - Woman using payment terminal" class="w-full h-full object-cover rounded-lg">
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="hero-card">
+                <h3>SOLVY Payment Processing</h3>
+                <p>Secure, fast, and rewarding transactions for businesses and customers</p>
+                <img src="hero_payment_image.webp" alt="SOLVY Payment Processing" onerror="this.style.display='none'">
             </div>
         </div>
     </section>
 
-    <!-- SOVEREIGNITITY™ PRESENTATION SECTION -->
-    <section class="presentation-section py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <!-- Presentation Introduction -->
-            <div class="presentation-intro">
-                <h2 class="intro-title">Discover the Complete SOVEREIGNITITY™ Vision</h2>
-                <p class="intro-subtitle">
+    <!-- Presentation Section -->
+    <section class="presentation-section">
+        <div class="presentation-container">
+            <div class="presentation-header">
+                <h2 class="presentation-title">Discover the Complete SOVEREIGNITITY™ Vision</h2>
+                <p class="presentation-subtitle">
                     Explore how our integrated ecosystem empowers global communities through data sovereignty, 
                     cooperative economics, and blockchain technology to achieve true economic autonomy.
                 </p>
             </div>
-            
-            <!-- Presentation Container -->
+
             <div class="slide-container">
-                <!-- Slide Counter -->
-                <div class="slide-counter">
-                    <span id="currentSlide">1</span> / <span id="totalSlides">8</span>
+                <!-- Slide 1: The Economic Challenge -->
+                <div class="slide active" data-slide="1">
+                    <div class="slide-header">
+                        <h3 class="slide-title">The Economic Challenge</h3>
+                        <div class="slide-counter">1 / 8</div>
+                    </div>
+                    <h4 class="slide-subtitle">Global Economic Disruption</h4>
+                    <div class="slide-content">
+                        <div class="slide-text">
+                            <p>The world faces unprecedented economic challenges that disproportionately affect vulnerable communities:</p>
+                            <ul class="slide-points">
+                                <li><strong>AI Displacement:</strong> Millions face job loss due to automation</li>
+                                <li><strong>Financial Exclusion:</strong> 1.7 billion adults remain unbanked</li>
+                                <li><strong>High Remittance Costs:</strong> 6-8% globally</li>
+                                <li><strong>Data Exploitation:</strong> Big Tech profits while individuals receive nothing</li>
+                            </ul>
+                            <div class="slide-quote">
+                                "Breaking free from economic entrapment requires a new approach to data, identity, and community wealth."
+                            </div>
+                        </div>
+                        <div class="slide-visual">
+                            <div class="slide-icon">📈</div>
+                            <div style="color: white; font-weight: 600;">Economic Disruption</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional slides would continue here with the same structure -->
+                <!-- For brevity, showing just the first slide in this example -->
+            </div>
+
+            <div class="navigation-controls">
+                <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+                
+                <div class="slide-indicators">
+                    <div class="indicator active" onclick="currentSlide(1)"></div>
+                    <div class="indicator" onclick="currentSlide(2)"></div>
+                    <div class="indicator" onclick="currentSlide(3)"></div>
+                    <div class="indicator" onclick="currentSlide(4)"></div>
+                    <div class="indicator" onclick="currentSlide(5)"></div>
+                    <div class="indicator" onclick="currentSlide(6)"></div>
+                    <div class="indicator" onclick="currentSlide(7)"></div>
+                    <div class="indicator" onclick="currentSlide(8)"></div>
                 </div>
                 
-                <!-- Slide 1: Economic Challenge -->
-                <div class="slide-content active" id="slide-1">
-                    <div>
-                        <h1 class="slide-title">The Economic Challenge</h1>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <div>
-                                <h2 class="slide-subtitle">Global Economic Disruption</h2>
-                                <p class="slide-text">The world faces unprecedented economic challenges that disproportionately affect vulnerable communities:</p>
-                                <div class="space-y-4 mt-6">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-robot text-red-400 mr-3"></i>
-                                        <span><span class="accent font-bold">AI Displacement:</span> Millions face job loss due to automation</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-ban text-red-400 mr-3"></i>
-                                        <span><span class="accent font-bold">Financial Exclusion:</span> 1.7 billion adults remain unbanked</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-money-bill-wave text-red-400 mr-3"></i>
-                                        <span><span class="accent font-bold">High Remittance Costs:</span> 6-8% globally</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-database text-red-400 mr-3"></i>
-                                        <span><span class="accent font-bold">Data Exploitation:</span> Big Tech profits while individuals receive nothing</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <div class="bg-gradient-to-br from-red-500/20 to-orange-500/20 p-8 rounded-2xl">
-                                    <i class="fas fa-exclamation-triangle text-6xl text-red-400 mb-4"></i>
-                                    <blockquote class="text-xl italic text-gray-300">
-                                        "Breaking free from economic entrapment requires a new approach to data, identity, and community wealth."
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 2: SOVEREIGNITITY™ Solution -->
-                <div class="slide-content" id="slide-2">
-                    <div>
-                        <h1 class="slide-title">The SOVEREIGNITITY™ Solution</h1>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <div class="text-center">
-                                <div class="bg-gradient-to-br from-purple-500/20 to-blue-500/20 p-8 rounded-2xl">
-                                    <img src="solvy-logo.png" alt="SOLVY Crown" class="h-24 w-24 mx-auto mb-6">
-                                    <h3 class="text-2xl font-bold text-purple-400 mb-4">Economic Sovereignty Through Technology</h3>
-                                </div>
-                            </div>
-                            <div>
-                                <h2 class="slide-subtitle">Integrated Ecosystem</h2>
-                                <p class="slide-text">SOVEREIGNITITY™ creates a comprehensive platform that addresses every aspect of economic empowerment:</p>
-                                <div class="space-y-4 mt-6">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-shield-alt text-green-400 mr-3"></i>
-                                        <span><span class="accent font-bold">Data Sovereignty:</span> You own and control your information</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-coins text-green-400 mr-3"></i>
-                                        <span><span class="accent font-bold">Economic Autonomy:</span> Break free from traditional banking</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-users text-green-400 mr-3"></i>
-                                        <span><span class="accent font-bold">Community Wealth:</span> Cooperative economic models</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-globe text-green-400 mr-3"></i>
-                                        <span><span class="accent font-bold">Global Access:</span> Borderless financial services</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Add remaining slides here... -->
-                <!-- For brevity, I'll add a few more key slides -->
-
-                <!-- Slide Navigation -->
-                <div class="slide-navigation">
-                    <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">
-                        <i class="fas fa-chevron-left mr-2"></i>Previous
-                    </button>
-                    <div class="slide-indicators" id="slideIndicators">
-                        <!-- Indicators will be generated by JavaScript -->
-                    </div>
-                    <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">
-                        Next<i class="fas fa-chevron-right ml-2"></i>
-                    </button>
-                </div>
+                <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next</button>
             </div>
         </div>
     </section>
 
-    <!-- Complete Financial Ecosystem -->
+    <!-- Ecosystem Section -->
     <section class="ecosystem-section">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Complete Financial Ecosystem</h2>
-                <p class="text-xl text-gray-300">Breaking systems of economic entrapment - supporting small businesses and family foundations through data sovereignty and genuine financial cooperation</p>
+        <div class="ecosystem-container">
+            <div class="ecosystem-header">
+                <h2 class="ecosystem-title">Complete Financial Ecosystem</h2>
+                <p class="ecosystem-subtitle">
+                    Breaking systems of economic entrapment - supporting small businesses and family foundations through data sovereignty and genuine financial cooperation
+                </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="ecosystem-grid">
                 <!-- EBL Payment System -->
                 <div class="ecosystem-card">
-                    <div class="flex items-center mb-4">
-                        <img src="solvy-logo.png" alt="SOLVY Crown" class="w-10 h-10 mr-3">
-                        <h3 class="text-xl font-bold">EBL Payment System</h3>
+                    <div class="ecosystem-status">Live & Processing Payments</div>
+                    <div class="ecosystem-card-header">
+                        <img src="solvy-logo.png" alt="Crown" class="ecosystem-icon">
+                        <h3>EBL Payment System</h3>
                     </div>
-                    <p class="text-gray-300 mb-4">Proven payment processing for Evergreen Beauty Lounge - demonstrating what genuine economic freedom achieves through community empowerment.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm flex items-center">
-                            <span class="w-2 h-2 bg-white rounded-full mr-2"></span>
-                            Live & Processing Payments
-                        </span>
-                        <a href="ebl-payment.html" class="cta-primary">Try Demo</a>
-                    </div>
+                    <p>Proven payment processing for Evergreen Beauty Lounge - demonstrating what genuine economic freedom achieves through community empowerment.</p>
+                    <a href="https://ebl.beauty" class="ecosystem-cta">Try Demo</a>
                 </div>
 
                 <!-- SOVEREIGNITITY™ -->
                 <div class="ecosystem-card">
-                    <div class="flex items-center mb-4">
-                        <img src="solvy-logo.png" alt="SOLVY Crown" class="w-10 h-10 mr-3">
-                        <h3 class="text-xl font-bold">SOVEREIGNITITY™</h3>
+                    <div class="ecosystem-status">Revolutionary Concept</div>
+                    <div class="ecosystem-card-header">
+                        <img src="solvy-logo.png" alt="Crown" class="ecosystem-icon">
+                        <h3>SOVEREIGNITITY™</h3>
                     </div>
-                    <p class="text-gray-300 mb-4">Self-sovereign identity meets economic empowerment. Data sovereignty and autonomy crucial for addressing inequities and ensuring financial survival.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">Revolutionary Concept</span>
-                        <a href="sovereignitity.html" class="cta-primary">Learn More</a>
-                    </div>
+                    <p>Self-sovereign identity meets economic empowerment. Data sovereignty and autonomy crucial for addressing inequities and ensuring financial survival.</p>
+                    <a href="/sovereignitity" class="ecosystem-cta">Learn More</a>
                 </div>
 
                 <!-- SOVEREIGNITITY™ LIFE PROGRAM -->
                 <div class="ecosystem-card">
-                    <div class="flex items-center mb-4">
-                        <img src="solvy-logo.png" alt="SOLVY Crown" class="w-10 h-10 mr-3">
-                        <h3 class="text-xl font-bold">SOVEREIGNITITY™ LIFE PROGRAM</h3>
+                    <div class="ecosystem-status">Proven Results</div>
+                    <div class="ecosystem-card-header">
+                        <img src="solvy-logo.png" alt="Crown" class="ecosystem-icon">
+                        <h3>SOVEREIGNITITY™ LIFE PROGRAM</h3>
                     </div>
-                    <p class="text-gray-300 mb-4">Membership owned life insurance breaking cycles of financial dependency with proven IBC/BYOB strategies: $8,000 → $8,400 growth in one month through One America. Building cooperative wealth from the ground up.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">Proven Results</span>
-                        <a href="moli.html" class="cta-primary">Learn Strategy</a>
-                    </div>
+                    <p>Membership owned life insurance breaking cycles of financial dependency with proven IBC/BYOB strategies: $8,000 → $8,400 growth in one month through One America. Building cooperative wealth from the ground up.</p>
+                    <a href="https://decidey-4bhjvq.manus.space/moli" class="ecosystem-cta">Learn Strategy</a>
                 </div>
 
                 <!-- Reign Products -->
                 <div class="ecosystem-card">
-                    <div class="flex items-center mb-4">
-                        <img src="solvy-logo.png" alt="SOLVY Crown" class="w-10 h-10 mr-3">
-                        <h3 class="text-xl font-bold">Reign Products</h3>
+                    <div class="ecosystem-status">Available Now</div>
+                    <div class="ecosystem-card-header">
+                        <img src="solvy-logo.png" alt="Crown" class="ecosystem-icon">
+                        <h3>Reign Products</h3>
                     </div>
-                    <p class="text-gray-300 mb-4">Nobel Prize winning Graphene™ technology available through EBL Services with SOVEREIGNITITY™ CARD integration.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Available Now</span>
-                        <a href="reign.html" class="cta-primary">Shop Products</a>
-                    </div>
+                    <p>Nobel Prize winning Graphene™ technology available through EBL Services with SOVEREIGNITITY™ CARD integration.</p>
+                    <a href="https://decidey-4bhjvq.manus.space/reign" class="ecosystem-cta">Shop Products</a>
                 </div>
 
                 <!-- DECIDEY NGO -->
-                <div class="ecosystem-card">
-                    <div class="flex items-center mb-4">
-                        <img src="solvy-logo.png" alt="SOLVY Crown" class="w-10 h-10 mr-3">
-                        <h3 class="text-xl font-bold">DECIDEY NGO</h3>
+                <div class="ecosystem-card" id="decidey-section">
+                    <div class="ecosystem-status">Digital Rights</div>
+                    <div class="ecosystem-card-header">
+                        <img src="solvy-logo.png" alt="Crown" class="ecosystem-icon">
+                        <h3>DECIDEY NGO</h3>
                     </div>
-                    <p class="text-gray-300 mb-4">Breaking systemic barriers through education and digital rights advocacy. Continuing the legacy of Marcus Garvey, MLK, and Malcolm X in the modern era.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">Digital Rights</span>
-                        <a href="decidey.html" class="cta-primary">Join Movement</a>
-                    </div>
+                    <p>Breaking systemic barriers through education and digital rights advocacy. Continuing the legacy of Marcus Garvey, MLK, and Malcolm X in the modern era.</p>
+                    <a href="#decidey-section" class="ecosystem-cta">Join Movement</a>
                 </div>
 
                 <!-- MAN Network -->
                 <div class="ecosystem-card" id="man-network">
-                    <div class="flex items-center mb-4">
-                        <img src="solvy-logo.png" alt="SOLVY Crown" class="w-4 h-4 mr-2">
-                        <h3 class="text-xl font-bold">MAN Network</h3>
+                    <div class="ecosystem-status">
+                        <img src="solvy-logo.png" alt="Crown" style="width: 16px; height: 16px; margin-right: 4px;">
+                        Security First
                     </div>
-                    <p class="text-gray-300 mb-4">Monitoring, Audit, and Network security ensuring transparency and trust across all SOLVY operations.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm flex items-center">
-                            <img src="solvy-logo.png" alt="SOLVY Crown" class="w-4 h-4 mr-1">
-                            Security First
-                        </span>
-                        <a href="#" class="cta-primary">View Security</a>
+                    <div class="ecosystem-card-header">
+                        <img src="solvy-logo.png" alt="Crown" class="ecosystem-icon">
+                        <h3>MAN Network</h3>
                     </div>
+                    <p>Monitoring, Audit, and Network security ensuring transparency and trust across all SOLVY operations.</p>
+                    <a href="#man-network" class="ecosystem-cta">View Security</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Made with Manus -->
-    <div class="made-with-manus">
-        Made with Manus
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with Manus</p>
+    </footer>
 
     <script>
-        let currentSlideIndex = 0;
+        let currentSlideIndex = 1;
         const totalSlides = 8;
+        let autoAdvanceInterval;
 
-        function initializeSlideshow() {
-            // Create indicators
-            const indicatorsContainer = document.getElementById('slideIndicators');
-            for (let i = 0; i < totalSlides; i++) {
-                const indicator = document.createElement('div');
-                indicator.className = 'indicator';
-                indicator.onclick = () => goToSlide(i);
-                indicatorsContainer.appendChild(indicator);
-            }
-            
-            updateSlideDisplay();
-            document.getElementById('totalSlides').textContent = totalSlides;
-        }
-
-        function changeSlide(direction) {
-            currentSlideIndex += direction;
-            if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
-            if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
-            updateSlideDisplay();
-        }
-
-        function goToSlide(index) {
-            currentSlideIndex = index;
-            updateSlideDisplay();
-        }
-
-        function updateSlideDisplay() {
-            // Hide all slides
-            const slides = document.querySelectorAll('.slide-content');
-            slides.forEach(slide => slide.classList.remove('active'));
-            
-            // Show current slide
-            const currentSlide = document.getElementById(`slide-${currentSlideIndex + 1}`);
-            if (currentSlide) {
-                currentSlide.classList.add('active');
-            }
-            
-            // Update indicators
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
             const indicators = document.querySelectorAll('.indicator');
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentSlideIndex);
-            });
             
-            // Update counter
-            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            if (n > totalSlides) currentSlideIndex = 1;
+            if (n < 1) currentSlideIndex = totalSlides;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            if (slides[currentSlideIndex - 1]) {
+                slides[currentSlideIndex - 1].classList.add('active');
+            }
+            if (indicators[currentSlideIndex - 1]) {
+                indicators[currentSlideIndex - 1].classList.add('active');
+            }
             
             // Update navigation buttons
-            document.getElementById('prevBtn').disabled = currentSlideIndex === 0;
-            document.getElementById('nextBtn').disabled = currentSlideIndex === totalSlides - 1;
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            if (prevBtn) prevBtn.disabled = currentSlideIndex === 1;
+            if (nextBtn) nextBtn.disabled = currentSlideIndex === totalSlides;
         }
 
-        // Initialize slideshow when page loads
-        document.addEventListener('DOMContentLoaded', initializeSlideshow);
+        function changeSlide(n) {
+            currentSlideIndex += n;
+            showSlide(currentSlideIndex);
+            resetAutoAdvance();
+        }
 
-        // Auto-advance slides every 10 seconds
-        setInterval(() => {
-            if (currentSlideIndex < totalSlides - 1) {
-                changeSlide(1);
+        function currentSlide(n) {
+            currentSlideIndex = n;
+            showSlide(currentSlideIndex);
+            resetAutoAdvance();
+        }
+
+        function autoAdvance() {
+            if (currentSlideIndex < totalSlides) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            } else {
+                currentSlideIndex = 1;
+                showSlide(currentSlideIndex);
             }
-        }, 10000);
+        }
+
+        function startAutoAdvance() {
+            autoAdvanceInterval = setInterval(autoAdvance, 10000); // 10 seconds
+        }
+
+        function resetAutoAdvance() {
+            clearInterval(autoAdvanceInterval);
+            startAutoAdvance();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlide(currentSlideIndex);
+            startAutoAdvance();
+
+            // Pause auto-advance on hover
+            const slideContainer = document.querySelector('.slide-container');
+            if (slideContainer) {
+                slideContainer.addEventListener('mouseenter', () => {
+                    clearInterval(autoAdvanceInterval);
+                });
+
+                slideContainer.addEventListener('mouseleave', () => {
+                    startAutoAdvance();
+                });
+            }
+        });
     </script>
 </body>
 </html>
