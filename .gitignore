@@ -1,0 +1,41 @@
+node_modules/
+venv/
+.env
+.DS_Store
+*.pdf
+__pycache__/
+
+# Large files
+*.mp4
+*.mov
+*.avi
+apps/huginn/data/mysql/binlog.*
+sovereignitity-platform/public/videos/*.mp4
+
+
+# Large files
+*.mp4
+*.mov
+*.avi
+apps/huginn/data/mysql/binlog.*
+sovereignitity-platform/public/videos/*.mp4
+
+apps/huginn/data/mysql/binlog.*
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Large files and binaries
+*.mp4
+*.avi
+*.mov
+*.mkv
+apps/huginn/data/mysql/binlog.*
+*.log
+*.sqlite
+*.db
+node_modules/
+dist/
+build/
+.DS_Store

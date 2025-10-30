@@ -1,0 +1,5 @@
+.DS_Store
+*.zip
+solvy-mvp-unified*/
+node_modules/
+.env

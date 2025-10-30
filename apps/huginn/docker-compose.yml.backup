@@ -1,0 +1,111 @@
+
+# Update these lines:
+-SMTP_USER_NAME=s.a.nathanllc@gmail.com
+-SMTP_PASSWORD=xteq zqkk uorb bzer
+-ADMIN_EMAIL=s.a.nathanllc@gmail.com
+version: '3.8'
+
+# Update these lines:
+-SMTP_USER_NAME=s.a.nathanllc@gmail.com
+-SMTP_PASSWORD=xteq zqkk uorb bzer
+-ADMIN_EMAIL=s.a.nathanllc@gmail.com
+version: '3.8'
+
+services:
+  huginn-db:
+    image: mysql:8.0
+    platform: linux/amd64
+    container_name: sovereignitity-db
+    environment:
+      MYSQL_ROOT_PASSWORD: SOLVY_secure_2026!
+      MYSQL_DATABASE: huginn_production
+      MYSQL_USER: huginn
+      MYSQL_PASSWORD: huginn_SOLVY_2026
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - sovereignitity-network
+
+  huginn:
+    image: huginn/huginn
+    platform: linux/amd64
+    container_name: sovereignitity-huginn
+    depends_on:
+      - huginn-db
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_ADAPTER=mysql2
+      - DATABASE_ENCODING=utf8mb4
+      - DATABASE_RECONNECT=true
+      - DATABASE_NAME=huginn_production
+      - DATABASE_POOL=20
+      - DATABASE_USERNAME=huginn
+      - DATABASE_PASSWORD=huginn_SOLVY_2026
+      - DATABASE_HOST=huginn-db
+      - DATABASE_PORT=3306
+      - APP_SECRET_TOKEN=sovereignitity_secret_token_2026_economic_freedom
+      - INVITATION_CODE=SOLVY2026
+      - REQUIRE_CONFIRMED_EMAIL=false
+      - SKIP_INVITATION_CODE=false
+      - TIMEZONE=America/Chicago
+    volumes:
+      - ./data/huginn:/var/lib/huginn
+      - ./logs:/app/log
+    restart: unless-stopped
+    networks:
+      - sovereignitity-network
+
+networks:
+  sovereignitity-network:
+    driver: bridge
+services:
+  huginn-db:
+    image: mysql:8.0
+    platform: linux/amd64
+    container_name: sovereignitity-db
+    environment:
+      MYSQL_ROOT_PASSWORD: SOLVY_secure_2026!
+      MYSQL_DATABASE: huginn_production
+      MYSQL_USER: huginn
+      MYSQL_PASSWORD: huginn_SOLVY_2026
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - sovereignitity-network
+
+  huginn:
+    image: huginn/huginn
+    platform: linux/amd64
+    container_name: sovereignitity-huginn
+    depends_on:
+      - huginn-db
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_ADAPTER=mysql2
+      - DATABASE_ENCODING=utf8mb4
+      - DATABASE_RECONNECT=true
+      - DATABASE_NAME=huginn_production
+      - DATABASE_POOL=20
+      - DATABASE_USERNAME=huginn
+      - DATABASE_PASSWORD=huginn_SOLVY_2026
+      - DATABASE_HOST=huginn-db
+      - DATABASE_PORT=3306
+      - APP_SECRET_TOKEN=sovereignitity_secret_token_2026_economic_freedom
+      - INVITATION_CODE=SOLVY2026
+      - REQUIRE_CONFIRMED_EMAIL=false
+      - SKIP_INVITATION_CODE=false
+      - TIMEZONE=America/Chicago
+    volumes:
+      - ./data/huginn:/var/lib/huginn
+      - ./logs:/app/log
+    restart: unless-stopped
+    networks:
+      - sovereignitity-network
+
+networks:
+  sovereignitity-network:
+    driver: bridge

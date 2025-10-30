@@ -1,0 +1,29 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "installCommand": "npm install --no-frozen-lockfile",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    }
+  ],
+  "env": {
+    "DEEPSEEK_API_KEY": "@deepseek_api_key",
+    "POLYGON_RPC_URL": "@polygon_rpc_url",
+    "STRIPE_SECRET_KEY": "@stripe_secret_key",
+    "VERCEL_ENV": "production"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    }
+  ]
+}
+
