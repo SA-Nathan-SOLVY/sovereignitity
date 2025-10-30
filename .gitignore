@@ -39,3 +39,29 @@ node_modules/
 dist/
 build/
 .DS_Store
+
+# Large media files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.flv
+
+# Database files and logs
+*.binlog
+*.sqlite
+*.db
+apps/huginn/data/mysql/
+
+# Node modules and build files
+node_modules/
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Large directories
+sovereignitity-platform/public/videos/
