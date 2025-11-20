@@ -1,4 +1,0 @@
--- Create tax system database
-CREATE DATABASE sovereign_tax;
-CREATE USER tax_user WITH PASSWORD 'secure_password';
-GRANT ALL PRIVILEGES ON DATABASE sovereign_tax TO tax_user;

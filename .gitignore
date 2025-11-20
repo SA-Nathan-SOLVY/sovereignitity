@@ -1,67 +1,61 @@
+# Dependencies
 node_modules/
-venv/
-.env
-.DS_Store
-*.pdf
-__pycache__/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
 
-# Large files
-*.mp4
-*.mov
-*.avi
-apps/huginn/data/mysql/binlog.*
-sovereignitity-platform/public/videos/*.mp4
+# Build outputs
+dist/
+build/
+.next/
+out/
 
-
-# Large files
-*.mp4
-*.mov
-*.avi
-apps/huginn/data/mysql/binlog.*
-sovereignitity-platform/public/videos/*.mp4
-
-apps/huginn/data/mysql/binlog.*
-*.mp4
-*.avi
-*.mov
-*.mkv
-
-# Large files and binaries
-*.mp4
-*.avi
-*.mov
-*.mkv
-apps/huginn/data/mysql/binlog.*
+# Cache
+.cache/
 *.log
-*.sqlite
-*.db
-node_modules/
-dist/
-build/
 .DS_Store
 
-# Large media files
-*.mp4
-*.avi
-*.mov
-*.mkv
-*.wmv
-*.flv
+# Environment variables
+.env
+.env.local
+.env.*.local
 
-# Database files and logs
-*.binlog
-*.sqlite
-*.db
-apps/huginn/data/mysql/
+# Archives and backups
+*.zip
+*.tar.gz
+*.old
+*.backup
+tools/archives/
 
-# Node modules and build files
-node_modules/
-dist/
-build/
+# Git internals
+*.pack
+*.idx
 
-# System files
-.DS_Store
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+ENV/
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# OS
 Thumbs.db
+.DS_Store
 
-# Large directories
-sovereignitity-platform/public/videos/
+# SSH keys
+*.pem
+*.key
+id_rsa*
+y
+y.pub
+
+# Sensitive
+*.pdf

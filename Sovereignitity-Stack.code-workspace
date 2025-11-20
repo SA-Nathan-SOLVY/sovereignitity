@@ -1,0 +1,52 @@
+{
+  "folders": [
+    {
+      "name": "🎨 Frontend",
+      "path": "./frontend"
+    },
+    {
+      "name": "⚙️ Backend",
+      "path": "./backend"
+    },
+    {
+      "name": "📚 Documentation",
+      "path": "./docs"
+    },
+    {
+      "name": "🔧 Configuration",
+      "path": "./config"
+    },
+    {
+      "name": "🛠️ Tools",
+      "path": "./tools"
+    },
+    {
+      "name": "📁 Root",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": false,
+      "**/.DS_Store": true,
+      "**/__pycache__": true,
+      "**/node_modules": true,
+      "**/*.pyc": true
+    },
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "liveServer.settings.root": "/frontend",
+    "liveServer.settings.port": 5500
+  },
+  "extensions": {
+    "recommendations": [
+      "ritwickdey.liveserver",
+      "ms-python.python",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "bradlc.vscode-tailwindcss"
+    ]
+  }
+}

@@ -1,3 +1,0 @@
-# No external dependencies needed - using Python standard library only
-# This keeps the serverless functions lightweight and fast
-
