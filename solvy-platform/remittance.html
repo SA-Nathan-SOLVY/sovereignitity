@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Remittance Vision | SOLVY Platform</title>
+    <meta name="description" content="Building zero-fee family networks connecting diaspora communities worldwide through Web3 infrastructure.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 1rem auto;
+            opacity: 0.9;
+        }
+
+        .vision-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border-left: 5px solid #EC4899;
+        }
+
+        .vision-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #EC4899;
+        }
+
+        .vision-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .roadmap {
+            margin: 4rem 0;
+        }
+
+        .roadmap-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .roadmap-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .roadmap-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .roadmap-item:hover {
+            transform: translateY(-5px);
+            border-color: #EC4899;
+        }
+
+        .roadmap-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .status-progress {
+            background: #10B981;
+        }
+
+        .status-planned {
+            background: #3B82F6;
+        }
+
+        .status-vision {
+            background: #EC4899;
+        }
+
+        .roadmap-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-item h4 {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .roadmap-item li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .roadmap-item li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #EC4899;
+            font-size: 1.5rem;
+        }
+
+        .calculator {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .calculator h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .calculator-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .calculator-input {
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .calculator-input label {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .calculator-input input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.3rem;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .calculator-result {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .calculator-result h4 {
+            color: #EC4899;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .calculator-result .amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .calculator-result .savings {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #10B981;
+        }
+
+        .countries-section {
+            margin: 4rem 0;
+        }
+
+        .countries-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .countries-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .country-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .country-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #EC4899;
+        }
+
+        .country-flag {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .country-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .country-info {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.3) 0%, rgba(236, 72, 153, 0.3) 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #EC4899;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .roadmap-items {
+                grid-template-columns: 1fr;
+            }
+
+            .countries-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="navigation-placeholder"></div>
+
+    <section class="hero-section">
+        <h1>Global Remittance Vision & Roadmap</h1>
+        <p>Building the future of diaspora financial sovereignty through strategic partnership goals</p>
+    </section>
+
+    <div class="container">
+        <div class="vision-box fade-in">
+            <h2>💡 Future Vision: Self-Determined Economic Liberation</h2>
+            <p>
+                While HR 40 represents important progress, communities seeking economic opportunity cannot wait for institutional action. 
+                SOLVY's roadmap envisions <strong>zero-fee family remittances</strong> connecting diaspora communities globally through our 
+                <strong>Ethereum-ready and Polygon-integrated</strong> Web3 infrastructure.
+            </p>
+            <p style="margin-top: 1rem;">
+                This comprehensive network will enable <strong>immediate economic sovereignty</strong> through cooperative wealth-building, 
+                supporting all communities seeking financial independence and opportunity.
+            </p>
+        </div>
+
+        <div class="roadmap fade-in">
+            <h2 class="roadmap-title">Development Roadmap</h2>
+            
+            <div class="roadmap-items">
+                <div class="roadmap-item">
+                    <span class="roadmap-status status-progress">In Progress</span>
+                    <h3>Phase 1: Foundation</h3>
+                    <h4>2025 Q1-Q2</h4>
+                    <ul>
+                        <li>EBL Services integration (Current)</li>
+                        <li>SOLVY Card deployment</li>
+                        <li>DECIDEY NGO education platform</li>
+                        <li>LIFE Program wealth-building strategies</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-item">
+                    <span class="roadmap-status status-planned">Planned</span>
+                    <h3>Phase 2: Regional Expansion</h3>
+                    <h4>2025 Q3-Q4</h4>
+                    <ul>
+                        <li>African Diaspora remittance pilot</li>
+                        <li>Nigeria, Ghana, Kenya partnerships</li>
+                        <li>Family card network testing</li>
+                        <li>Cooperative economics education</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-item">
+                    <span class="roadmap-status status-vision">Vision</span>
+                    <h3>Phase 3: Global Integration</h3>
+                    <h4>2026 Q1-Q2</h4>
+                    <ul>
+                        <li>Web3 infrastructure deployment</li>
+                        <li>Ethereum and Polygon network integration</li>
+                        <li>International partnership development</li>
+                        <li>Cross-border payment infrastructure</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-item">
+                    <span class="roadmap-status status-vision">Vision</span>
+                    <h3>Phase 4: Global Network</h3>
+                    <h4>2026 Q3+</h4>
+                    <ul>
+                        <li>Top remittance market integration</li>
+                        <li>Multi-currency support expansion</li>
+                        <li>Global cooperative network</li>
+                        <li>Economic sovereignty achievement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator fade-in">
+            <h2>Future Savings Calculator</h2>
+            <p class="calculator-subtitle">See how much your family could save with zero-fee remittances</p>
+            
+            <div class="calculator-input">
+                <label for="sendAmount">Send Amount (USD)</label>
+                <input type="number" id="sendAmount" value="500" min="0" step="50">
+            </div>
+            
+            <div class="calculator-results">
+                <div class="calculator-result">
+                    <h4>Traditional Remittance</h4>
+                    <p>Send Amount: <span id="traditionalSend">$500</span></p>
+                    <p>Fees (18%): <span id="traditionalFees" style="color: #EF4444;">-$90.00</span></p>
+                    <p class="amount">Recipient Gets: <span id="traditionalReceives">$410.00</span></p>
+                </div>
+                <div class="calculator-result">
+                    <h4>SOLVY Family Network (Future)</h4>
+                    <p>Send Amount: <span id="solvySend">$500</span></p>
+                    <p>Fees: <span style="color: #10B981;">$0.00 (Family Cards)</span></p>
+                    <p class="amount">Recipient Gets: <span id="solvyReceives">$500</span></p>
+                </div>
+                <div class="calculator-result" style="grid-column: 1 / -1;">
+                    <h4>Projected Annual Savings</h4>
+                    <p class="savings" id="annualSavings">$1,080.00</p>
+                    <p>Per year (monthly transfers)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="countries-section fade-in">
+            <h2 class="countries-title">Comprehensive Global Network Vision</h2>
+            <p class="countries-subtitle">Priority markets for zero-fee family remittance network</p>
+            
+            <h3 style="font-size: 2rem; margin: 3rem 0 1.5rem; text-align: center;">🌍 African Diaspora (Priority)</h3>
+            <div class="countries-grid">
+                <div class="country-card">
+                    <div class="country-flag">🇳🇬</div>
+                    <div class="country-name">Nigeria</div>
+                    <div class="country-info">$25.1B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇬🇭</div>
+                    <div class="country-name">Ghana</div>
+                    <div class="country-info">$4.7B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇰🇪</div>
+                    <div class="country-name">Kenya</div>
+                    <div class="country-info">$4.2B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇲🇦</div>
+                    <div class="country-name">Morocco</div>
+                    <div class="country-info">$10.9B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇸🇳</div>
+                    <div class="country-name">Senegal</div>
+                    <div class="country-info">$2.8B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇪🇬</div>
+                    <div class="country-name">Egypt</div>
+                    <div class="country-info">$31.9B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇪🇹</div>
+                    <div class="country-name">Ethiopia</div>
+                    <div class="country-info">$5.4B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇿🇦</div>
+                    <div class="country-name">South Africa</div>
+                    <div class="country-info">$1.1B volume</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 2rem; margin: 3rem 0 1.5rem; text-align: center;">🌎 Top Remittance Markets</h3>
+            <div class="countries-grid">
+                <div class="country-card">
+                    <div class="country-flag">🇲🇽</div>
+                    <div class="country-name">Mexico</div>
+                    <div class="country-info">$61.0B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇮🇳</div>
+                    <div class="country-name">India</div>
+                    <div class="country-info">$125B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇵🇭</div>
+                    <div class="country-name">Philippines</div>
+                    <div class="country-info">$38.2B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇬🇹</div>
+                    <div class="country-name">Guatemala</div>
+                    <div class="country-info">$19.3B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇻🇳</div>
+                    <div class="country-name">Vietnam</div>
+                    <div class="country-info">$17.2B volume</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇧🇩</div>
+                    <div class="country-name">Bangladesh</div>
+                    <div class="country-info">$21.9B volume</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="benefits fade-in">
+            <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <h3>Economic Sovereignty</h3>
+                <p>Self-determined financial independence. Bypass traditional banking limitations and build wealth on your own terms.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🤝</div>
+                <h3>Diaspora Unity</h3>
+                <p>Connect families across continents. Strengthen cultural and economic bonds through zero-fee family networks.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🌍</div>
+                <h3>Global Impact</h3>
+                <p>Deploy Web3 infrastructure globally. Advance blockchain-based financial systems and create decentralized economic networks.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; background: rgba(0, 0, 0, 0.3); border-radius: 20px; padding: 4rem 2rem; margin: 4rem 0;" class="fade-in">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Join the Movement?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                Start your journey to economic sovereignty today with the SOLVY Card
+            </p>
+            <a href="https://shop.ebl.beauty" class="btn btn-primary" style="padding: 1rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; background: #EC4899; color: #fff; display: inline-block; transition: all 0.3s;">
+                Get Your SOLVY Card →
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>SOLVY - Solutions Valued You</strong></p>
+        <p>Building zero-fee family networks for global economic sovereignty</p>
+        <p style="margin-top: 2rem;">
+            Founded by SA Nathan | Continuing the legacy of Marcus Garvey, MLK, and Malcolm X in the digital age
+        </p>
+        <p style="margin-top: 1rem; opacity: 0.6;">© 2025 SOLVY Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="navigation.js"></script>
+    <script>
+        // Calculator functionality
+        const sendAmountInput = document.getElementById('sendAmount');
+        
+        function updateCalculator() {
+            const amount = parseFloat(sendAmountInput.value) || 0;
+            const feePercent = 0.18;
+            const fees = amount * feePercent;
+            const traditionalReceives = amount - fees;
+            const annualSavings = fees * 12;
+            
+            document.getElementById('traditionalSend').textContent = `$${amount.toFixed(2)}`;
+            document.getElementById('traditionalFees').textContent = `-$${fees.toFixed(2)}`;
+            document.getElementById('traditionalReceives').textContent = `$${traditionalReceives.toFixed(2)}`;
+            
+            document.getElementById('solvySend').textContent = `$${amount.toFixed(2)}`;
+            document.getElementById('solvyReceives').textContent = `$${amount.toFixed(2)}`;
+            
+            document.getElementById('annualSavings').textContent = `$${annualSavings.toFixed(2)}`;
+        }
+        
+        sendAmountInput.addEventListener('input', updateCalculator);
+        updateCalculator();
+        
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => fadeObserver.observe(el));
+    </script>
+</body>
+</html>
