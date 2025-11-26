@@ -1,4 +1,11 @@
 import os
+import sys
+from pathlib import Path
+
+# Add backend directory to path for imports
+backend_dir = Path(__file__).parent
+sys.path.insert(0, str(backend_dir))
+
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
@@ -16,6 +23,22 @@ from solvy_connector import SOLVYDebitCardConnector, SOLVYDataIntegrator
 tax_assistant = TaxAssistant()
 solvy_connector = SOLVYDebitCardConnector()
 solvy_integrator = SOLVYDataIntegrator()
+
+# Register Kimi support routes (blueprint)
+try:
+    from kimi_support import kimi_bp
+    app.register_blueprint(kimi_bp)
+except Exception:
+    # If the module isn't present yet, continue — support endpoint will be available after adding the module
+    pass
+
+# Register PMC signup endpoint (blueprint)
+try:
+    from api.contact_eva import contact_eva_bp
+    app.register_blueprint(contact_eva_bp, url_prefix='/api')
+except Exception as e:
+    print(f"Warning: Could not load contact_eva blueprint: {e}")
+    pass
 
 @app.route('/')
 def index():

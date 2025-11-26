@@ -2,6 +2,10 @@
 Gunicorn configuration for SOLVY production deployment
 """
 import multiprocessing
+import os
+
+# Ensure working directory is set correctly for imports
+os.chdir('/var/www/sovereignitity/backend')
 
 # Server socket
 bind = "0.0.0.0:5001"  # Listen on all interfaces, port 5001
