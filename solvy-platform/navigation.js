@@ -43,15 +43,17 @@ const navigationHTML = `
     }
 
     .solvy-logo-icon {
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(135deg, #7C3AED, #EC4899);
-        border-radius: 50%;
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
-        font-size: 1.2rem;
+    }
+
+    .solvy-logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     .solvy-nav {
@@ -209,7 +211,9 @@ const navigationHTML = `
 <header class="solvy-header">
     <div class="solvy-header-content">
         <a href="index.html" class="solvy-logo">
-            <div class="solvy-logo-icon">S</div>
+            <div class="solvy-logo-icon">
+                <img src="SolvyLogo-1024.png" alt="SOLVY Logo">
+            </div>
             <span>SOLVY</span>
         </a>
         

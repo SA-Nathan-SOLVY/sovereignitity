@@ -39,7 +39,7 @@
     "python.linting.pylintEnabled": true,
     "liveServer.settings.root": "/frontend",
     "liveServer.settings.port": 8080, 
-    "liveServer.settings.multiRootWorkspaceName": "🎨 Frontend"
+    "liveServer.settings.multiRootWorkspaceName": "📁 Root"
   },
   "extensions": {
     "recommendations": [

@@ -481,7 +481,25 @@ def print_comparison_report(comparison):
     print("="*70 + "\n")
 
 
-# Example usage and test cases
+# Minimal TaxAssistant class for backend integration
+class TaxAssistant:
+    def calculate_marginal_tax(self, income, filing_status='married_jointly'):
+        result = calculate_w2_scenario(float(income), filing_status)
+        return {
+            'income_tax': result.get('income_tax'),
+            'fica_tax': result.get('fica_tax'),
+            'total_tax': result.get('total_tax'),
+            'effective_tax_rate': result.get('effective_tax_rate'),
+            'take_home_pay': result.get('take_home_pay'),
+            'bracket_details': result.get('bracket_details')
+        }
+
+    def optimize_business_expenses(self, revenue, expenses):
+        total_expenses = sum(expenses.values()) if isinstance(expenses, dict) else float(expenses or 0)
+        return optimize_business_expenses(float(revenue), total_expenses)
+
+
+    # Example usage and test cases
 if __name__ == "__main__":
     print("SOLVY Tax Calculator - Test Cases\n")
     
@@ -522,3 +540,23 @@ if __name__ == "__main__":
     print("\nTips:")
     for tip in optimization['tips']:
         print(f"  • {tip}")
+
+
+    # Minimal TaxAssistant class for backend integration
+    class TaxAssistant:
+        def calculate_marginal_tax(self, income, filing_status):
+            # Use W-2 scenario for now
+            result = calculate_w2_scenario(income, filing_status)
+            return {
+                'income_tax': result['income_tax'],
+                'fica_tax': result['fica_tax'],
+                'total_tax': result['total_tax'],
+                'effective_tax_rate': result['effective_tax_rate'],
+                'take_home_pay': result['take_home_pay'],
+                'bracket_details': result['bracket_details']
+            }
+
+        def optimize_business_expenses(self, revenue, expenses):
+            # Sum expenses and call optimizer
+            total_expenses = sum(expenses.values()) if isinstance(expenses, dict) else float(expenses)
+            return optimize_business_expenses(revenue, total_expenses)
