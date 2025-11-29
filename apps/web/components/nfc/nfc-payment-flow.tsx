@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useNFC } from '../hooks/useNFC';
-import { NFCMemberCard, NFCPaymentRequest } from '../types/nfc';
+import { useNFC } from '../../hooks/useNFC';
+import { NFCMemberCard, NFCPaymentRequest } from '../../types/nfc';
 
 interface NFCPaymentFlowProps {
   myCard: NFCMemberCard;
@@ -28,6 +28,34 @@ export const NFCPaymentFlow: React.FC<NFCPaymentFlowProps> = ({
 
   const handleProcessPayment = async () => {
     try {
+      // First, create a PaymentIntent on the server
+      const cents = Math.round((paymentRequest.amount || 0) * 100);
+      const res = await fetch('/api/stripe/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: cents, currency: 'usd' })
+      });
+
+      const json = await res.json();
+      if (!json.success) {
+        throw new Error(json.error || 'Failed to create payment intent');
+      }
+
+      const intentId = json.id;
+
+      // For demo mode: confirm the PaymentIntent on the server using a test PM
+      const conf = await fetch('/api/stripe/confirm-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ intent_id: intentId })
+      });
+
+      const confJson = await conf.json();
+      if (!confJson.success) {
+        throw new Error(confJson.error || 'Failed to confirm payment');
+      }
+
+      // Complete NFC-specific processing (tokenize, record transaction)
       const success = await processPayment(paymentRequest);
       if (success) {
         console.log('Payment completed successfully!');
@@ -56,7 +84,7 @@ export const NFCPaymentFlow: React.FC<NFCPaymentFlowProps> = ({
           type="number"
           placeholder="Amount"
           value={paymentRequest.amount as unknown as string}
-          onChange={(e) => setPaymentRequest({
+          onChange={(e: any) => setPaymentRequest({
             ...paymentRequest,
             amount: parseFloat(e.target.value) || 0
           })}
@@ -66,7 +94,7 @@ export const NFCPaymentFlow: React.FC<NFCPaymentFlowProps> = ({
           type="text"
           placeholder="Service"
           value={paymentRequest.service}
-          onChange={(e) => setPaymentRequest({
+          onChange={(e: any) => setPaymentRequest({
             ...paymentRequest,
             service: e.target.value
           })}
@@ -76,7 +104,7 @@ export const NFCPaymentFlow: React.FC<NFCPaymentFlowProps> = ({
           type="text"
           placeholder="Recipient"
           value={paymentRequest.recipient}
-          onChange={(e) => setPaymentRequest({
+          onChange={(e: any) => setPaymentRequest({
             ...paymentRequest,
             recipient: e.target.value
           })}
@@ -85,7 +113,7 @@ export const NFCPaymentFlow: React.FC<NFCPaymentFlowProps> = ({
         <textarea
           placeholder="Notes (speech to text or type)"
           value={paymentRequest.notes}
-          onChange={(e) => setPaymentRequest({
+          onChange={(e: any) => setPaymentRequest({
             ...paymentRequest,
             notes: e.target.value
           })}

@@ -40,6 +40,14 @@ except Exception as e:
     print(f"Warning: Could not load contact_eva blueprint: {e}")
     pass
 
+# Register Stripe payment endpoints (if available)
+try:
+    from api.stripe_payments import stripe_bp
+    app.register_blueprint(stripe_bp, url_prefix='/api/stripe')
+except Exception as e:
+    print(f"Warning: Could not load stripe_payments blueprint: {e}")
+    pass
+
 @app.route('/')
 def index():
     """Main index route - now serves the dashboard"""

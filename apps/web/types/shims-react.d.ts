@@ -3,6 +3,23 @@ declare namespace React {
   function createElement(type: any, props?: any, ...children: any[]): any;
 }
 
+declare namespace JSX {
+  interface IntrinsicElements {
+    html: any;
+    body: any;
+    div: any;
+    h1: any;
+    p: any;
+    nav: any;
+    ul: any;
+    li: any;
+    input: any;
+    button: any;
+    textarea: any;
+    [key: string]: any;
+  }
+}
+
 declare module 'react' {
   export function useState<S = any>(initial?: S | (() => S)) : [S, (s: S) => void];
   export function useCallback<T extends (...args: any[]) => any>(fn: T, deps: any[]): T;
